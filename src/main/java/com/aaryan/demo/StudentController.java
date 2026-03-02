@@ -1,6 +1,9 @@
 package com.aaryan.demo;
 
 import org.springframework.web.bind.annotation.*;
+
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 @RestController
@@ -14,7 +17,7 @@ public class StudentController {
     }
 
     @PostMapping
-    public Student createStudent(@RequestBody Student student) {
+    public Student createStudent(@Valid @RequestBody Student student) {
         return studentService.saveStudent(student);
     }
 
