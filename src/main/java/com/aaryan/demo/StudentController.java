@@ -21,6 +21,11 @@ public class StudentController {
         return studentService.saveStudent(student);
     }
 
+    @GetMapping("/{id}")
+    public Student getStudent(@PathVariable Long id) {
+        return studentService.getStudentById(id);
+    }
+
     @GetMapping
     public List<Student> getStudents() {
         return studentService.getAllStudents();
