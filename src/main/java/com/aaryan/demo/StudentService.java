@@ -2,7 +2,6 @@ package com.aaryan.demo;
 
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -28,5 +27,17 @@ public class StudentService {
     public Student getStudentById(Long id) {
         return studentRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Student not found"));
+    }
+
+    public StudentDTO saveStudent(StudentDTO dto) {
+
+        Student student = new Student(dto.getName(), dto.getAge());
+
+        Student saved = studentRepository.save(student);
+
+        return new StudentDTO(
+                saved.getId(),
+                saved.getName(),
+                saved.getAge());
     }
 }
