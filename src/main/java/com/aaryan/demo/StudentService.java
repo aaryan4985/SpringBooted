@@ -2,6 +2,7 @@ package com.aaryan.demo;
 
 import org.springframework.stereotype.Service;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class StudentService {
@@ -29,6 +30,7 @@ public class StudentService {
                 .orElseThrow(() -> new RuntimeException("Student not found"));
     }
 
+    @Transactional
     public StudentDTO saveStudent(StudentDTO dto) {
 
         Student student = new Student(dto.getName(), dto.getAge());
