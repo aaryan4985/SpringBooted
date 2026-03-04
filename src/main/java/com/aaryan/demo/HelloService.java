@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 public class HelloService {
 
     public String getMessage() {
-        return "Hello Aaryan, Spring Boot with Service Layer!";
+        return "Hello Dazai, Spring Boot with Service Layer!";
     }
 }
