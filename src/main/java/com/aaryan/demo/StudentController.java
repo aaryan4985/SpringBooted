@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 @RestController
@@ -27,7 +29,12 @@ public class StudentController {
     }
 
     @GetMapping
-    public List<Student> getStudents() {
+    public Page<Student> getStudents(Pageable pageable) {
+        return studentService.getAllStudents(pageable);
+    }
+
+    @GetMapping("/all")
+    public List<Student> getAllStudents() {
         return studentService.getAllStudents();
     }
 

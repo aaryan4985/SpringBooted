@@ -3,6 +3,8 @@ package com.aaryan.demo;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @Service
 public class StudentService {
@@ -15,6 +17,10 @@ public class StudentService {
 
     public Student saveStudent(Student student) {
         return studentRepository.save(student);
+    }
+
+    public Page<Student> getAllStudents(Pageable pageable) {
+        return studentRepository.findAll(pageable);
     }
 
     public List<Student> getAllStudents() {
